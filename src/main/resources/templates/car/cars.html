@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+</head>
+<body>
+<div th:insert="~{fragment :: header}"></div><br><br>
+
+<form th:action="@{'/users'}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}">
+    <button type="submit">Users</button>
+</form><br>
+<form th:action="@{'/rental/customer-requests'}" th:if="${#authorization.expression('hasAuthority(''USER'')')}">
+    <button type="submit">Requests for car rental</button>
+</form><br>
+<form th:action="@{'/rental'}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}">
+    <button type="submit">All customer requests</button>
+</form><br>
+<form th:action="@{/cars/add-car}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}">
+    <button type="submit">Add car</button>
+</form><br>
+<form th:action="@{'/car-models'}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}">
+    <button type="submit">Car models</button>
+</form><br><br>
+
+<div th:each="car : ${cars}">
+
+        <img  th:src="@{/cars/{id}/image(id=${car.id})}"
+             alt="No image"><br>
+        <a th:href="@{'/cars/' + ${car.id}}" th:text="|${car.brandName}. ${car.modelReadDto.modelName()}|"></a><br><br>
+</div>
+</body>
+</html>

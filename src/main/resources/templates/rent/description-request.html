@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+<body>
+<div th:insert="~{fragment :: header}"></div><br>
+
+<form th:action="@{/rental/{id}/process-request(id=${rent.id})}" method="post" th:object="${rent}">
+    <label for="dateStartId">Date start:
+        <input id="dateStartId" type="text" name="dateStart" th:value="*{dateStart}">
+    </label><br>
+    <label for="terminationCarRentalId">Termination car rental:
+        <input id="terminationCarRentalId" type="text" name="terminationCarRental" th:value="*{terminationCarRental}">
+    </label><br>
+    <label for="carId">Car id:
+        <input id="carId" type="number" name="carId"  th:value="*{carReadDto.id}">
+    </label><br>
+    <label for="requestStatusId">Request status:
+        <input type="text" name="requestStatus" id="requestStatusId" th:value="*{requestStatus}">
+    </label><br>
+    <label for="userId">User id:
+        <input id="userId" type="number" name="userId"  th:value="*{userReadDto.id}">
+    </label><br>
+    <label for="passportId">Passport:
+        <input id="passportId" type="text" name="passport" th:value="*{passport}">
+    </label><br>
+    <label for="drivingExperienceId">Driving experience:
+        <input id="drivingExperienceId" type="number" name="drivingExperience" th:value="*{drivingExperience}">
+    </label><br>
+    <label for="messageId">Message:
+        <input id="messageId" type="text" name="message" th:value="*{message}">
+    </label><br>
+    <button type="submit">Process</button>
+</form><br>
+<form th:action="@{/rental}">
+    <button type="submit">Back to requests list</button>
+</form>
+</body>
+</html>

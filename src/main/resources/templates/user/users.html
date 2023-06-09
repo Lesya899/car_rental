@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<div th:insert="~{fragment :: header}"></div>
+<h2>LIST OF USERS</h2>
+<div th:each="user : ${users}">
+    <a th:href="@{'/users/' + ${user.id}}" th:text="|${user.id}. ${user.email}|">User</a>
+</div>
+<form th:action="@{/cars}">
+    <button type="submit">Back to car list</button>
+</form>
+</body>
+</html>

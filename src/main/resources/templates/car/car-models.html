@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car models</title>
+</head>
+<body>
+<div th:insert="~{fragment :: header}"></div><br><br>
+
+<div th:each="modelCar : ${modelCar}">
+    <a th:href="@{'/car-models/' + ${modelCar.id}}" th:text="${modelCar.modelName()}"></a><br><br>
+</div>
+<form th:action="@{/cars/available-cars}">
+    <button type="submit">Back to car list</button>
+</form>
+<form th:action="@{/car-models/add-model}" >
+    <button type="submit">Add car model</button>
+</form>
+</body>
+</html>

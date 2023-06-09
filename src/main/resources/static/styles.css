@@ -1,0 +1,16 @@
+.box {
+    background-color: thistle;
+    width: 350px;
+    height: 200px;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    }
+
+h1 {
+    background-color: darkseagreen;
+    font-size: 1rem;
+    width: 350px;
+}
+
+
+

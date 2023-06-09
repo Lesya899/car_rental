@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.0.6'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id "io.freefair.lombok" version '8.0.1'
+}
+
+group = 'org.nik'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '20'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+    }
+
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    implementation 'org.liquibase:liquibase-core'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+
+
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.testcontainers:postgresql:1.18.1'
+}
+
+test {
+    useJUnitPlatform()
+}

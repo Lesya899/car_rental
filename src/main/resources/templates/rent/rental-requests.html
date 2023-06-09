@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All car requests</title>
+</head>
+<body>
+<div th:insert="~{fragment :: header}"></div><br>
+
+<div th:each="req : ${rent}">
+    <a th:href="@{'/rental/' + ${req.id}}"
+       th:text="|Request car rental ${req.getDateStart()} - ${req.getTerminationCarRental()}
+        |"></a>
+</div><br>
+<form th:action="@{/cars/available-cars}">
+    <button type="submit">Back to cars list</button>
+</form>
+</body>
+</html>

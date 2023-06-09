@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div th:insert="~{fragment :: header}"></div><br><br>
+<form th:action="@{/car-models/{id}}">
+
+    <p th:text="'Model name: ' + ${model.modelName()}"/>
+    <p th:text="'Capacity: ' + ${model.capacity()}"/>
+
+
+</form>
+<form th:action="@{/car-models}">
+    <button type="submit">Back to car models list</button>
+</form>
+</body>
+</html>

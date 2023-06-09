@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div th:insert="~{fragment :: header}"></div>
+
+<form th:action="@{/car-models/add-model}" method="post" th:object="${modelCar}">
+    <label for="modelNameId">Model name:
+        <input id="modelNameId" type="text" name="modelName" th:value="*{modelName}">
+    </label><br>
+    <label for="capacityId">Capacity:
+        <input id="capacityId" type="number" name="capacity" th:value="*{capacity}">
+    </label><br>
+    <button type="submit">Save</button>
+</form>
+<form th:action="@{/car-models}">
+    <button type="submit">Back to car models</button>
+</form>
+</body>
+</html>

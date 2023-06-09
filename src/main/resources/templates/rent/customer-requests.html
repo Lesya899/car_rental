@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link th:href="@{/styles.css}" rel="stylesheet" />
+</head>
+<body>
+<div th:insert="~{fragment :: header}"></div><br><br>
+
+<h1>Information on the request</h1>
+<div class="box" th:each="req : ${rent}" th:if="${user.id == req.userReadDto.id}">
+    <p th:text="'Car: ' + |${req.carReadDto.getBrandName()} ${req.carReadDto.getModelReadDto().modelName()}|" />
+    <p th:text="'Rental start date: ' + ${req.getDateStart()}" />
+    <p th:text="'Request status: ' +  ${req.getRequestStatus().name()}" />
+    <p th:text="'Message: ' +  ${req.getMessage()}" />
+
+</div>
+<form th:action="@{/cars/available-cars}">
+    <button type="submit">Back to car list</button>
+</form>
+</body>
+</html>
