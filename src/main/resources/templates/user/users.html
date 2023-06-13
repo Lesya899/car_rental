@@ -10,7 +10,7 @@
 <div th:each="user : ${users}">
     <a th:href="@{'/users/' + ${user.id}}" th:text="|${user.id}. ${user.email}|">User</a>
 </div>
-<form th:action="@{/cars}">
+<form th:action="@{/cars/available-cars}">
     <button type="submit">Back to car list</button>
 </form>
 </body>

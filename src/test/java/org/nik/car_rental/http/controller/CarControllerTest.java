@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.nik.car_rental.dto.CarReadDto;
 import org.nik.car_rental.repository.IntegrationTestBase;
 import org.nik.car_rental.service.CarService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -17,6 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class CarControllerTest extends IntegrationTestBase {
 
+    @Autowired
     private final MockMvc mockMvc;
     private final CarService carService;
 
@@ -42,20 +44,16 @@ class CarControllerTest extends IntegrationTestBase {
 
     @Test
     void create() throws Exception {
-
         mockMvc.perform(post("/cars/add-car")
-                        .param("brandName", "Honda")
-                        .param("modelId", "1")
-                        .param("color", "black")
-                        .param("rentalPrice", "1500")
-                        .param("image","honda_cr-v.jpg")
-                        .param("carYear","2022")
-                        .param("status","NOT_RENTED")
-                )
-                .andExpectAll(
-                        status().is3xxRedirection(),
-                        redirectedUrlPattern("/cars/{\\d+}")
-                );
+                .param("brandName", "Honda")
+                .param("modelId", "3")
+                .param("color", "white")
+                .param("rentalPrice", "1800")
+                .param("image", "honda_crv_2.jpg")
+                .param("carYear", "2022")
+                .param("status", "NOT_RENTED"))
+                .andExpect( status().is3xxRedirection())
+                .andExpect(redirectedUrlPattern("/cars/{\\d+}"));
     }
 
     @Test

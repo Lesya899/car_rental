@@ -3,7 +3,6 @@ package org.nik.car_rental.service;
 import lombok.RequiredArgsConstructor;
 import org.nik.car_rental.dto.UserCreateDto;
 import org.nik.car_rental.dto.UserReadDto;
-import org.nik.car_rental.entity.User;
 import org.nik.car_rental.mapper.UserCreateMapper;
 import org.nik.car_rental.mapper.UserReadMapper;
 import org.nik.car_rental.repository.UserRepository;

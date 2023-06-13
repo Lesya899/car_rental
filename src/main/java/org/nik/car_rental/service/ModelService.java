@@ -1,8 +1,6 @@
 package org.nik.car_rental.service;
 
 import lombok.RequiredArgsConstructor;
-import org.nik.car_rental.dto.CarCreateDto;
-import org.nik.car_rental.dto.CarReadDto;
 import org.nik.car_rental.dto.ModelCreateDto;
 import org.nik.car_rental.dto.ModelReadDto;
 import org.nik.car_rental.mapper.ModelCreateMapper;

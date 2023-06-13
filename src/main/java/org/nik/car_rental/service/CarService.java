@@ -46,7 +46,6 @@ public class CarService {
     }
 
 
-
     @Transactional
     public boolean delete(Integer id) {
         return carRepository.findById(id)

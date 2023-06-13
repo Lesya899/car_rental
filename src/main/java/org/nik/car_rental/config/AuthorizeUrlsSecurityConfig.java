@@ -23,10 +23,10 @@ public class AuthorizeUrlsSecurityConfig {
     @Primary
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        http.cors().and().csrf().disable()
+        http.csrf().disable()
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/login",  "/users/registration","/users").permitAll()
-                        .requestMatchers("/cars/available-cars/", "/users/**", "/user/*", "/add-car/*").hasAuthority(ADMIN.getAuthority())
+                        .requestMatchers("/cars/available-cars/", "/users/**", "/user/**", "/cars/add-car/", "/car-models/add-model/").hasAuthority(ADMIN.getAuthority())
                         .requestMatchers("/cars/available-cars/").hasAuthority(USER.getAuthority())
                         .anyRequest().authenticated()
                 )

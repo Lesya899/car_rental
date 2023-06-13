@@ -40,9 +40,9 @@ public class RentService {
 
 
     public RentReadDto create(RentCreateDto rentCreateDto) {
-        return Optional.of(rentCreateDto) //берем Dto
-                .map(rentCreateMapper::map)//преобразуем его в сущность
-                .map(rentRepository::save) //добавляем сущность в БД
+        return Optional.of(rentCreateDto)
+                .map(rentCreateMapper::map)
+                .map(rentRepository::save)
                 .map(rentReadMapper::map)
                 .orElseThrow();
     }

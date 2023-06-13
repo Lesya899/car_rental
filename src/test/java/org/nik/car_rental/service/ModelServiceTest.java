@@ -31,10 +31,10 @@ class ModelServiceTest extends IntegrationTestBase {
 
     @Test
     void create() {
-        ModelCreateDto modelCreateDto = new  ModelCreateDto(
-                "Mustang",
-                5
-        );
+        ModelCreateDto modelCreateDto = ModelCreateDto.builder()
+                .modelName("Mustang")
+                .capacity(5)
+                .build();
         ModelReadDto actualResult = modelService.create(modelCreateDto);
         assertEquals(modelCreateDto.getModelName(), actualResult.modelName());
         assertEquals(modelCreateDto.getCapacity(), actualResult.capacity());

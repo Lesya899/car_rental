@@ -5,13 +5,12 @@ package org.nik.car_rental.dto;
 import jakarta.validation.constraints.*;
 import lombok.Builder;
 import lombok.Value;
-import lombok.experimental.FieldNameConstants;
 import org.nik.car_rental.entity.Role;
 
 
-@Value
+
 @Builder
-@FieldNameConstants
+@Value
 public class UserCreateDto {
     @NotBlank(message = "First name shouldn't be empty")
     @Size(min = 3, max = 64)

@@ -7,7 +7,6 @@ import org.nik.car_rental.dto.RentReadDto;
 import org.nik.car_rental.dto.UserReadDto;
 import org.nik.car_rental.entity.Rent;
 import org.springframework.stereotype.Component;
-
 import java.util.Optional;
 
 @Component
@@ -26,17 +25,17 @@ public class RentReadMapper implements Mapper<Rent, RentReadDto> {
                 .map(userReadMapper::map)
                 .orElse(null);
 
-        return new RentReadDto(
-                object.getId(),
-                object.getDateStart(),
-                object.getTerminationCarRental(),
-                carReadDto,
-                object.getRequestStatus(),
-                userReadDto,
-                object.getPassport(),
-                object.getDrivingExperience(),
-                object.getMessage()
-        );
+        return  RentReadDto.builder()
+                .id(object.getId())
+                .dateStart(object.getDateStart())
+                .terminationCarRental(object.getTerminationCarRental())
+                .carReadDto(carReadDto)
+                .requestStatus(object.getRequestStatus())
+                .userReadDto(userReadDto)
+                .passport(object.getPassport())
+                .drivingExperience(object.getDrivingExperience())
+                .message(object.getMessage())
+                .build();
     }
 }
 
